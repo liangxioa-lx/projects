@@ -1,12 +1,24 @@
 <template>
     <div class="page">
         <table class="table">
-            <tr>
-                <td>项目名称</td>
-                <td>项目地址</td>
-                <td>默认打开应用</td>
-                <td>操作</td>
-            </tr>
+            <thead>
+                <tr>
+                    <td>项目名称</td>
+                    <td>项目地址</td>
+                    <td>默认打开应用</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in projects" :key="index">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.path }}</td>
+                    <td>{{ item.defaultApp }}</td>
+                    <td>
+                        <button @click="openProject(item)">打开</button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
